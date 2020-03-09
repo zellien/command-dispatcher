@@ -15,7 +15,7 @@
     "ext-json"                           : "*",
     "psr/container"                      : "^1.0",
     "container-interop/container-interop": "^1.2",
-    "zellien/message"                    : "1.0.0"
+    "zellien/message"                    : "^1.0"
   },
   "minimum-stability": "dev",
   "autoload"         : {
