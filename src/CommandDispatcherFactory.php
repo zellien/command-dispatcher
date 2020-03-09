@@ -24,17 +24,21 @@ final class CommandDispatcherFactory {
      */
     public function __invoke(ContainerInterface $container): CommandDispatcherInterface {
         $config = $container->get('config');
+        $relations = $config['command_dispatcher']['relations'] ?? [];
         $factories = $config['command_dispatcher']['factories'] ?? [];
         $resolver = new HandlerResolver();
-        foreach ($factories as $commandName => $factory) {
-            // If invokable factory
-            if ($factory instanceof HandlerFactoryInterface) {
-                $factory = new $factory();
-            }
-            // Attach handler
-            if (is_callable($factory)) {
-                $handler = call_user_func($factory, $container);
-                $resolver->attach($commandName, $handler);
+        foreach ($relations as $command => $handler) {
+            if (is_string($handler) && class_exists($handler) && isset($factories[$handler])) {
+                $factory = $factories[$handler];
+                // If invokable factory
+                if (is_a($factory, HandlerFactoryInterface::class, true)) {
+                    $factory = new $factory();
+                }
+                // Attach handler
+                if (is_callable($factory)) {
+                    $handler = call_user_func($factory, $container);
+                    $resolver->attach($command, $handler);
+                }
             }
         }
         return new CommandDispatcher($resolver);
