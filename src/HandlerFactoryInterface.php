@@ -24,8 +24,8 @@ interface HandlerFactoryInterface {
      * @param ContainerInterface $container
      * @param string             $requestedName
      * @param null|array         $options
-     * @return object
+     * @return HandlerInterface
      */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null);
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null): HandlerInterface;
 
 }
