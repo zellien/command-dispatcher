@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Zellien\CommandDispatcher;
 
-use Psr\Container\ContainerInterface;
+use Interop\Container\ContainerInterface;
 
 /**
  * Interface HandlerFactoryInterface
@@ -19,9 +19,13 @@ use Psr\Container\ContainerInterface;
 interface HandlerFactoryInterface {
 
     /**
+     * Create an object
+     *
      * @param ContainerInterface $container
-     * @return HandlerInterface
+     * @param string             $requestedName
+     * @param null|array         $options
+     * @return object
      */
-    public function __invoke(ContainerInterface $container): HandlerInterface;
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null);
 
 }

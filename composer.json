@@ -21,7 +21,8 @@
     "php"            : "^7.2",
     "ext-json"       : "*",
     "zellien/message": "dev-master",
-    "psr/container"  : "^1.0"
+    "psr/container"  : "^1.0",
+    "container-interop/container-interop": "^1.2"
   },
   "autoload"    : {
     "psr-4": {
