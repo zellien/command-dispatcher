@@ -1,31 +1,24 @@
 {
-  "name"        : "zellien/command-dispatcher",
-  "version"     : "1.0.0",
-  "description" : "Simple implementation of the command dispatcher.",
-  "type"        : "library",
-  "license"     : "MIT",
-  "authors"     : [
+  "name"             : "zellien/command-dispatcher",
+  "version"          : "1.0.0",
+  "description"      : "Simple implementation of the command dispatcher.",
+  "type"             : "library",
+  "license"          : "MIT",
+  "authors"          : [
     {
       "name" : "zellien",
       "email": "development.sites@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "name": "zellien/message",
-      "type": "git",
-      "url" : "https://github.com/zellien/message"
-    }
-  ],
-  "require"     : {
-    "php"            : "^7.2",
-    "ext-json"       : "*",
-    "zellien/message": "dev-master",
-    "psr/container"  : "^1.0",
-    "container-interop/container-interop": "^1.2"
+  "require"          : {
+    "php"                                : "^7.2",
+    "ext-json"                           : "*",
+    "psr/container"                      : "^1.0",
+    "container-interop/container-interop": "^1.2",
+    "zellien/message"                    : "1.0.0"
   },
   "minimum-stability": "dev",
-  "autoload"    : {
+  "autoload"         : {
     "psr-4": {
       "Zellien\\CommandDispatcher\\": "src/"
     }
